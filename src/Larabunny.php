@@ -1,6 +1,7 @@
 <?php
 
 namespace Modularavel\Larabunny;
+
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\UploadedFile;
@@ -14,7 +15,7 @@ class Larabunny
      */
     public function request(string $url, string $method = 'GET', ?array $body = [])
     {
-        $client = new Client();
+        $client = new Client;
 
         $defaultHeaders = [
             'AccessKey' => config('larabunny.api_key'),
@@ -35,7 +36,7 @@ class Larabunny
         return json_decode($response->getBody()->getContents(), true);
     }
 
-    public function getCollection(int $libraryId, string $collectionId, bool|null $includeThumbnails = true)
+    public function getCollection(int $libraryId, string $collectionId, ?bool $includeThumbnails = true)
     {
         $includeThumbnails = $includeThumbnails ? 'true' : 'false';
 
@@ -105,7 +106,7 @@ class Larabunny
         $url = "https://video.bunnycdn.com/library/{$libraryId}/collections/{$collectionId}";
 
         return $this->request($url, 'POST', [
-            'name'=> $collectionName,
+            'name' => $collectionName,
         ]);
     }
 
@@ -171,7 +172,6 @@ class Larabunny
          *
          * [{ title: '', start: '', end: '' }]
          */
-
         $url = "https://video.bunnycdn.com/library/{$libraryId}/videos/{$videoId}";
 
         $body = [];
@@ -305,7 +305,6 @@ class Larabunny
      * 1 = vp9
      * 2 = hevc
      * 3 = av1
-     *
      */
     public function addOutputCodecToVideo(int $libraryId, string $videoId, int $outputCodecId)
     {
@@ -317,8 +316,8 @@ class Larabunny
     public function repackageVideo(int $libraryId, string $videoId, ?bool $keepOriginalFiles = null)
     {
         $url = "https://video.bunnycdn.com/library/{$libraryId}/videos/{$videoId}/repackage?".http_build_query([
-                'keepOriginalFiles' => $keepOriginalFiles ? 'true' : 'false'
-            ]);
+            'keepOriginalFiles' => $keepOriginalFiles ? 'true' : 'false',
+        ]);
 
         return $this->request($url, 'POST');
     }
@@ -339,7 +338,7 @@ class Larabunny
     public function uploadVideoThumbnail(int $libraryId, string $videoId, UploadedFile $file, ?string $disk = 's3')
     {
         $path = $file->store("videos/{$videoId}/thumbnails", [
-            'disk' => $disk
+            'disk' => $disk,
         ]);
 
         $temporaryUrl = Storage::disk($disk)->temporaryUrl($path, now()->addMinutes(15));

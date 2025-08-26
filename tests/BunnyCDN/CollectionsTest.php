@@ -28,9 +28,9 @@ it('get collection', function () {
     $deletedCollection = Larabunny::deleteCollection(config('larabunny.library_id'), $collection['guid']);
 
     expect($deletedCollection)->toBeArray()->and($deletedCollection)->toBe([
-        "success"    => true,
-        "message"    => "OK",
-        "statusCode" => 200
+        'success' => true,
+        'message' => 'OK',
+        'statusCode' => 200,
     ]);
 });
 
@@ -53,12 +53,11 @@ it('delete collection', function () {
     $deletedCollection = Larabunny::deleteCollection(config('larabunny.library_id'), $collection['guid']);
 
     expect($deletedCollection)->toBeArray()->and($deletedCollection)->toBe([
-        "success"    => true,
-        "message"    => "OK",
-        "statusCode" => 200
+        'success' => true,
+        'message' => 'OK',
+        'statusCode' => 200,
     ]);
 });
-
 
 it('update collection', function () {
     $libraryId = config('larabunny.library_id');
@@ -80,8 +79,8 @@ it('update collection', function () {
     $deletedCollection = Larabunny::deleteCollection($libraryId, $newCollection['guid']);
 
     expect($deletedCollection)->toBeArray()->and($deletedCollection)->toBe([
-        "success"    => true,
-        "message"    => "OK",
-        "statusCode" => 200
+        'success' => true,
+        'message' => 'OK',
+        'statusCode' => 200,
     ]);
 });

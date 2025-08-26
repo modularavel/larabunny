@@ -3,8 +3,8 @@
 namespace Modularavel\Larabunny\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use Modularavel\Larabunny\LarabunnyServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
