@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Modularavel\Larabunny\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LarabunnyCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'larabunny';
 
     public $description = 'My command';
 

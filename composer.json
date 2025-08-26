@@ -1,24 +1,25 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "modularavel/larabunny",
+    "description": "This is my package larabunny",
     "keywords": [
-        ":vendor_name",
+        "Modularavel",
         "laravel",
-        ":package_slug"
+        "larabunny"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/modularavel/larabunny",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Casimiro Rocha",
+            "email": "contato@crsistemas.dev.br",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.4",
-        "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^11.0||^12.0"
+        "php": ">=8.2",
+        "illuminate/contracts": ">=11.0",
+        "league/flysystem-aws-s3-v3": "3.0",
+        "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
         "laravel/pint": "^1.14",
@@ -35,23 +36,40 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Modularavel\\Larabunny\\": "src/",
+            "Modularavel\\Larabunny\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/"
+            "Modularavel\\Larabunny\\Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
         }
     },
     "scripts": {
-        "post-autoload-dump": "@composer run prepare",
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare",
+            "@composer run prepare"
+        ],
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
         "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage",
-        "format": "vendor/bin/pint"
+        "format": "vendor/bin/pint",
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@build",
+            "@php vendor/bin/testbench serve --ansi"
+        ],
+        "lint": [
+            "@php vendor/bin/pint --ansi",
+            "@php vendor/bin/phpstan analyse --verbose --ansi"
+        ]
     },
     "config": {
         "sort-packages": true,
@@ -63,10 +81,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Modularavel\\Larabunny\\LarabunnyServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "Larabunny": "Modularavel\\Larabunny\\Facades\\Larabunny"
             }
         }
     },
