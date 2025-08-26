@@ -18,9 +18,9 @@ class LarabunnyServiceProvider extends PackageServiceProvider
             //->hasViews()
             //->hasTranslations()
            // ->hasAssets()
-            ->publishesServiceProvider(LarabunnyServiceProvider::class)
+           // ->publishesServiceProvider(LarabunnyServiceProvider::class)
             //->hasRoute('web')
-            ->hasMigration('create_larabunny_table')
+            //->hasMigration('create_larabunny_table')
             ->hasCommand(LarabunnyCommand::class)
             ->hasInstallCommand(function(InstallCommand $command) {
                 $command
