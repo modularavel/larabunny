@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \Modularavel\Larabunny\Larabunny
+ *
  * @method static getCollection(int $libraryId, string $collectionId, bool|null $includeThumbnails = true)
  * @method static getCollectionsList(int $libraryId, int $page = 1, int $perPage = 1000, ?string $search = null, ?string $orderBy = 'date', bool $includeThumbnails = true)
  * @method static getCollectionIdByName(int $libraryId, string $collectionName)

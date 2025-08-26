@@ -1,7 +1,7 @@
 <?php
 
 return [
-   /*
+    /*
    |--------------------------------------------------------------------------
    | Application Name
    |--------------------------------------------------------------------------
@@ -12,17 +12,17 @@ return [
    |
    */
 
-   'base_url' => env('BUNNY_BASE_URL', 'https://video.bunnycdn.com'),
+    'base_url' => env('BUNNY_BASE_URL', 'https://video.bunnycdn.com'),
 
-   'pull_zone' => env('BUNNY_PULL_ZONE'),
+    'pull_zone' => env('BUNNY_PULL_ZONE'),
 
-   'cdn_hostname' => env('BUNNY_CDN_HOSTNAME'),
+    'cdn_hostname' => env('BUNNY_CDN_HOSTNAME'),
 
-   'api_key' => env('BUNNY_API_KEY'),
+    'api_key' => env('BUNNY_API_KEY'),
 
-   'library_id' => env('BUNNY_LIBRARY_ID'),
+    'library_id' => env('BUNNY_LIBRARY_ID'),
 
-   'shorts_collection_name' => env('BUNNY_SHORTS_COLLECTION_NAME'),
+    'shorts_collection_name' => env('BUNNY_SHORTS_COLLECTION_NAME'),
 
-   'shorts_collection_id' => env('BUNNY_SHORTS_COLLECTION_ID'),
+    'shorts_collection_id' => env('BUNNY_SHORTS_COLLECTION_ID'),
 ];
