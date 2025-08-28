@@ -11,8 +11,8 @@ return [
    | other UI elements where an application name needs to be displayed.
    |
    */
-   'base_url' => getenv('BUNNY_BASE_URL', 'https://video.bunnycdn.com'),
-   'library_id' => getenv('BUNNY_LIBRARY_ID'),
+    'base_url' => getenv('BUNNY_BASE_URL', 'https://video.bunnycdn.com'),
+    'library_id' => getenv('BUNNY_LIBRARY_ID'),
     'pull_zone' => getenv('BUNNY_PULL_ZONE'),
     'cdn_hostname' => getenv('BUNNY_CDN_HOSTNAME'),
     'api_key' => getenv('BUNNY_API_KEY'),
