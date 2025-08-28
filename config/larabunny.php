@@ -11,18 +11,11 @@ return [
    | other UI elements where an application name needs to be displayed.
    |
    */
-
-    'base_url' => env('BUNNY_BASE_URL', 'https://video.bunnycdn.com'),
-
-    'pull_zone' => env('BUNNY_PULL_ZONE'),
-
-    'cdn_hostname' => env('BUNNY_CDN_HOSTNAME'),
-
-    'api_key' => env('BUNNY_API_KEY'),
-
-    'library_id' => env('BUNNY_LIBRARY_ID'),
-
-    'shorts_collection_name' => env('BUNNY_SHORTS_COLLECTION_NAME'),
-
-    'shorts_collection_id' => env('BUNNY_SHORTS_COLLECTION_ID'),
+   'base_url' => getenv('BUNNY_BASE_URL', 'https://video.bunnycdn.com'),
+   'library_id' => getenv('BUNNY_LIBRARY_ID'),
+    'pull_zone' => getenv('BUNNY_PULL_ZONE'),
+    'cdn_hostname' => getenv('BUNNY_CDN_HOSTNAME'),
+    'api_key' => getenv('BUNNY_API_KEY'),
+    'shorts_collection_name' => getenv('BUNNY_SHORTS_COLLECTION_NAME'),
+    'shorts_collection_id' => getenv('BUNNY_SHORTS_COLLECTION_ID'),
 ];
